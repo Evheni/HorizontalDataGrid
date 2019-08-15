@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="HorizontalDataGrid.CellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:horizontalDataGrid="clr-namespace:HorizontalDataGrid"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance horizontalDataGrid:ParameterViewModel}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBox">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsUsed}" Value="false">
+                        <Setter Property="Foreground" Value="Gray" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <TextBox IsEnabled="{Binding IsEnabled}"
+                             Text="{Binding Value}"/>
+
+</UserControl>
